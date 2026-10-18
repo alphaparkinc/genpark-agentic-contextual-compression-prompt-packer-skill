@@ -1,0 +1,36 @@
+{
+  "name": "genpark-agentic-contextual-compression-prompt-packer-skill",
+  "version": "1.0.0",
+  "description": "Agentic Long-Context Prompt Compressor & Token Budget Preserver. Employs task-relevant contextual slicing, lexical deduplication, and entropy-preserving pruning to compress massive LLM prompts by 40-70% while safeguarding system invariants.",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "compress_prompt_context",
+      "description": "Compress raw prompt context to respect token budgets while retaining task-critical entities.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "raw_text": {
+            "type": "string",
+            "description": "Long conversational or document prompt context."
+          },
+          "focus_keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Critical terms and schema entities."
+          },
+          "target_token_budget": {
+            "type": "integer",
+            "description": "Approximate maximum token target."
+          }
+        },
+        "required": [
+          "raw_text"
+        ]
+      }
+    }
+  ]
+}
